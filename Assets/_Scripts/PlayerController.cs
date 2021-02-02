@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿                using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -22,9 +22,11 @@ public class PlayerController : MonoBehaviour
     private bool jumpNow = false;
     public int jumpLimit;
     public float gravity;
-
     public bool isGrounded;
     bool jumpPressed;
+
+    [Header("Crouch")]
+    public bool isCrouched;
 
    
     
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isGrounded = true;
 	    jumpPressed = false;
+        isCrouched = false;
 	    speed = OriginalSpeed;
 	    initialPower = chargePower;
     
@@ -41,6 +44,16 @@ public class PlayerController : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, Vector3.down);
         isGrounded = Physics.Raycast(ray, 1.02f, LayerMask.GetMask("Ground"));
+
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            isCrouched = true;
+        }else
+        {
+            isCrouched = false;
+        }
+       
+
 
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {
@@ -52,7 +65,7 @@ public class PlayerController : MonoBehaviour
 	        
             
         }
-        if(Input.GetKeyUp(KeyCode.Space))
+        if(Input.GetKeyUp(KeyCode.Space) && isCrouched == false)
         {
             jumpNow = true;
         }
@@ -62,19 +75,23 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 	    moveInput = Input.GetAxisRaw("Horizontal");
-	    if(moveInput != 0 )
-	    {
-		    speed+=acceleration;
-		    if(speed > maxSpeed)
-		    {
-			    speed = maxSpeed;
-		    }
-	    }
-	    else
-	    {
-		    speed = OriginalSpeed;
-	    }
-        rb.velocity = new Vector3(moveInput * speed, rb.velocity.y);
+        
+            if (moveInput != 0)
+            {
+                speed += acceleration;
+                if (speed > maxSpeed)
+                {
+                    speed = maxSpeed;
+                }
+            }
+            else
+            {
+                speed = OriginalSpeed;
+            }
+        if (isCrouched == false)
+        {
+            rb.velocity = new Vector3(moveInput * speed, rb.velocity.y);
+        }
         if (jumpNow)
         {
             holdToJump();
@@ -89,6 +106,7 @@ public class PlayerController : MonoBehaviour
 	    chargePower = initialPower;
     }
     
+  
 
 
 
