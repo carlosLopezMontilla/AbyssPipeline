@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     public int jumpLimit;
     public float gravity;
     public bool isGrounded;
-    bool jumpPressed;
-
+    public bool jumpPressed;
+    
     [Header("Crouch")]
     public bool isCrouched;
 
@@ -52,26 +52,37 @@ public class PlayerController : MonoBehaviour
         {
             isCrouched = false;
         }
+
        
 
-
-        if (isGrounded && Input.GetKey(KeyCode.Space))
+        if (isGrounded && Input.GetKey(KeyCode.Space) && jumpPressed == false)
         {
 	        chargePower +=  Time.deltaTime;
+            
             if(chargePower >= jumpLimit)
             {
                 holdToJump();
+
             }
 	        
             
         }
-        if(Input.GetKeyUp(KeyCode.Space) && isCrouched == false)
+        if(Input.GetKeyUp(KeyCode.Space) && jumpPressed == false)
         {
+            jumpPressed = true;
             jumpNow = true;
+            
         }
+        
+        if(isGrounded)
+        {
+            jumpPressed = false;
+        }
+      
+
     }
 
-   
+
     void FixedUpdate()
     {
 	    moveInput = Input.GetAxisRaw("Horizontal");
@@ -101,9 +112,10 @@ public class PlayerController : MonoBehaviour
 
     void holdToJump()
     { 
-                rb.AddForce(Vector3.up * chargePower * Force, ForceMode.Impulse);
-                jumpNow = false;
-	    chargePower = initialPower;
+        rb.AddForce(Vector3.up * chargePower * Force, ForceMode.Impulse);
+        jumpNow = false;
+        jumpPressed = true;
+        chargePower = initialPower;
     }
     
   
