@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	public float acceleration;
 	public float maxSpeed;
 	public float OriginalSpeed;
+    public float distanceToGround;
 
     [Header("Hold to jump")]
 	public float chargePower = 0;
@@ -38,12 +39,13 @@ public class PlayerController : MonoBehaviour
         isCrouched = false;
 	    speed = OriginalSpeed;
 	    initialPower = chargePower;
+        distanceToGround = transform.localScale.y + 0.02f;
     
     }
     void Update()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
-        isGrounded = Physics.Raycast(ray, 1.02f, LayerMask.GetMask("Ground"));
+        isGrounded = Physics.Raycast(ray, distanceToGround, LayerMask.GetMask("Ground"));
 
         if(Input.GetKey(KeyCode.LeftShift))
         {
