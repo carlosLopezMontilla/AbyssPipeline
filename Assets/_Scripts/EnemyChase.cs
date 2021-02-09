@@ -17,6 +17,8 @@ public class EnemyChase : MonoBehaviour
 	int idChangeValue = 1;
 	public float speed;
 
+	public GameObject parent;
+	
 
 
 	public PlayerController pContr;
@@ -61,9 +63,15 @@ public class EnemyChase : MonoBehaviour
 	{
 		Transform goalPoins = points[nextID];
 		if (goalPoins.transform.position.x > transform.position.x)
+		{
 			transform.localScale = new Vector3(1, 1, -1);
-		else 
+			parent.transform.localScale = new Vector3(1, 1, -1);
+		}
+		else
+		{
 			transform.localScale = new Vector3(1, 1, 1);
+			parent.transform.localScale = new Vector3(1, 1, 1);
+		}
 
 		transform.position = Vector3.MoveTowards(transform.position,goalPoins.position,speed * Time.deltaTime);
 		if(Vector3.Distance(transform.position,goalPoins.position)<1f)

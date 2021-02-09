@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
     [Header("Crouch")]
     public bool isCrouched;
 
-   
+    [Header("Analisis")]
+    public Analisis analisis;
     
     void Start()
     {
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
         isGrounded = Physics.Raycast(ray, distanceToGround, LayerMask.GetMask("Ground"));
 
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKey(KeyCode.LeftShift) && analisis.Analyzed == true)
         {
             isCrouched = true;
         }else

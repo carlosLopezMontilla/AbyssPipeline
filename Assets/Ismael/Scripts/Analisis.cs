@@ -8,13 +8,11 @@ public class Analisis : MonoBehaviour
 {
 	[Header("Analyze")]
     public GameObject text;
-    public TextMeshProUGUI PressE;
-    public GameObject Analyze;
-    public TextMeshProUGUI Analizar;
+	public GameObject Analyze;
     public GameObject Exit;
-	public TextMeshProUGUI Salir;
 	public SphereCollider sColl;
 	public bool Inside, inAnalyze;
+	public bool Analyzed;
 
 	public EnemyChase eChase;
     // Start is called before the first frame update
@@ -24,6 +22,7 @@ public class Analisis : MonoBehaviour
 		sColl = GetComponent<SphereCollider>();
 		eChase = GetComponent<EnemyChase>();
 		sColl.radius = eChase.vision;
+		Analyzed = false;
 
     }
 
@@ -69,6 +68,7 @@ public class Analisis : MonoBehaviour
 		Analyze.SetActive(true);
 		Exit.SetActive(true);
 		inAnalyze = true;
+		Analyzed = true;
 	}
 
 	void SalirAnalizador()
