@@ -5,28 +5,28 @@ using UnityEngine;
 public class EnemyChase : MonoBehaviour
 {
     public Transform player;
-    public Transform other;
 	
 	public float approachSpeed;
 	public float followSpeed;
 	public float vision;
 	public float VisionAngle;
+	public float currentVisionAngle;
 
 	public List<Transform> points;
 	public int nextID = 0;
 	int idChangeValue = 1;
 	public float speed;
+	Vector3 lookDirection = Vector3.left;
 
-	public GameObject parent;
-	
-
+	public GameObject parentObject;
 
 	public PlayerController pContr;
     // Start is called before the first frame update
     void Start()
     {
 		approachSpeed = speed / 2;
-		followSpeed = 0;
+	    followSpeed = 0;
+	    
     }
 
     // Update is called once per frame
@@ -38,15 +38,17 @@ public class EnemyChase : MonoBehaviour
 
 	    float range = displacement.magnitude;
         float EnemyVision = VisionAngle / 2;
-	    float EnemyAngle = Vector3.Angle(Vector3.left, displacement);
+	    float EnemyAngle = Vector3.Angle(lookDirection, displacement);
+	    
+	    
+	    if (pContr.isCrouched == true)
+		    transform.position += Vector3.left * 0 *Time.deltaTime;
+
+	    if (pContr.isCrouched == false && range < vision && range < vision && EnemyVision > EnemyAngle)
+		    transform.position = Vector3.MoveTowards(transform.position, player.position, approachSpeed * Time.deltaTime);
 
 
-		if (pContr.isCrouched == true)
-			transform.position += Vector3.left * 0 *Time.deltaTime;
-
-		if (pContr.isCrouched == false && range < vision && range < vision && EnemyVision > EnemyAngle)
-				transform.position = Vector3.MoveTowards(transform.position, player.position, approachSpeed * Time.deltaTime);
-		
+	
 	}
 	// Implement OnDrawGizmos if you want to draw gizmos that are also pickable and always drawn.
 	protected void OnDrawGizmos()
@@ -64,13 +66,16 @@ public class EnemyChase : MonoBehaviour
 		Transform goalPoins = points[nextID];
 		if (goalPoins.transform.position.x > transform.position.x)
 		{
-			transform.localScale = new Vector3(1, 1, -1);
-			parent.transform.localScale = new Vector3(1, 1, -1);
+			transform.localScale = new Vector3(-1,1,1);
+			parentObject.transform.localScale = new Vector3(-1,1,1);
+			lookDirection = Vector3.right;
+			
 		}
 		else
 		{
 			transform.localScale = new Vector3(1, 1, 1);
-			parent.transform.localScale = new Vector3(1, 1, 1);
+			parentObject.transform.localScale = new Vector3(1, 1, 1);
+			lookDirection = Vector3.left;
 		}
 
 		transform.position = Vector3.MoveTowards(transform.position,goalPoins.position,speed * Time.deltaTime);

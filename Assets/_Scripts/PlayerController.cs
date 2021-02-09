@@ -27,10 +27,12 @@ public class PlayerController : MonoBehaviour
     public bool jumpPressed;
     
     [Header("Crouch")]
-    public bool isCrouched;
+	public bool isCrouched;
+    
+	[Header("Analisis")]
+	public Analisis analisis;
 
-    [Header("Analisis")]
-    public Analisis analisis;
+   
     
     void Start()
     {
