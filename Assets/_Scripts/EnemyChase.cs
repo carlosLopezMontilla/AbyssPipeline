@@ -35,10 +35,20 @@ public class EnemyChase : MonoBehaviour
      void Update()
     {
 		MoveToNextPoint();
-	
+		Vector3 displacement = player.position - transform.position;
+
+		float range = displacement.magnitude;
+		float EnemyVision = VisionAngle / 2;
+		float EnemyAngle = Vector3.Angle(lookDirection, displacement);
+		if (pContr.isCrouched == false && range < EnemyVision && range < vision && EnemyVision > EnemyAngle)
+			transform.position = Vector3.MoveTowards(transform.position, player.position, approachSpeed * Time.deltaTime);
 	}
+
+
+
+
 	// Implement OnDrawGizmos if you want to draw gizmos that are also pickable and always drawn.
-	/*protected void OnDrawGizmos()
+	protected void OnDrawGizmos()
 	{
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawWireSphere(transform.position,vision);
@@ -47,7 +57,7 @@ public class EnemyChase : MonoBehaviour
 		Gizmos.DrawLine(player.position, transform.position);
 
 		
-	}*/
+	}
 	void MoveToNextPoint()
 	{
 		Transform goalPoins = points[nextID];
@@ -75,7 +85,9 @@ public class EnemyChase : MonoBehaviour
 
 			nextID += idChangeValue;
 		}
+		
 
 	}
-	
 }
+	
+
