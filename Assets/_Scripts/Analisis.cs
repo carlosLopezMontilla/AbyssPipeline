@@ -12,7 +12,8 @@ public class Analisis : MonoBehaviour
     public GameObject Exit;
 	public SphereCollider sColl;
 	public bool Inside, inAnalyze;
-	public bool Analyzed;
+	//public bool Analyzed;
+	public UnlockHabs habs;
 
 	public EnemyChase eChase;
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class Analisis : MonoBehaviour
 		sColl = GetComponent<SphereCollider>();
 		eChase = GetComponent<EnemyChase>();
 		sColl.radius = eChase.vision;
-		Analyzed = false;
+		//Analyzed = false;
 
     }
 
@@ -68,7 +69,8 @@ public class Analisis : MonoBehaviour
 		Analyze.SetActive(true);
 		Exit.SetActive(true);
 		inAnalyze = true;
-		Analyzed = true;
+		habs.hideUnlock = true;
+		//Analyzed = true;
 	}
 
 	void SalirAnalizador()

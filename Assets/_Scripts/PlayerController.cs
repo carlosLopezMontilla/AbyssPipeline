@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 	[Header("Analisis")]
 	public Analisis analisis;
 
+    public UnlockHabs habs;
    
     
     void Start()
@@ -43,14 +44,15 @@ public class PlayerController : MonoBehaviour
 	    speed = OriginalSpeed;
 	    initialPower = chargePower;
         distanceToGround = transform.localScale.y + 0.02f;
-    
+            
     }
     void Update()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
         isGrounded = Physics.Raycast(ray, distanceToGround, LayerMask.GetMask("Ground"));
 
-        if(Input.GetKey(KeyCode.LeftShift) && analisis.Analyzed == true)
+  
+       if(Input.GetKey(KeyCode.LeftShift) && habs.hideUnlock == true)
         {
             isCrouched = true;
         }else
