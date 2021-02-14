@@ -7,10 +7,10 @@ public class Secret : MonoBehaviour
 	public SpriteRenderer FrontGround;
 	public bool Inside;
 	Color c;
+	public GameObject audioClip;
     // Start is called before the first frame update
     void Start()
 	{ 
-
     }
 
     // Update is called once per frame
@@ -41,6 +41,7 @@ public class Secret : MonoBehaviour
 	
 		Color c = FrontGround.GetComponent<SpriteRenderer>().material.color;
 		c.a -= 0.3f * Time.deltaTime;
+		AudioController.instance.PlaySecretZone();
 		if(c.a <= 0.1f)
 			{
 			c = new Color (0f,0f,0f,0f);
@@ -51,7 +52,7 @@ public class Secret : MonoBehaviour
 	void Restore()
 	{
 		Color c = FrontGround.GetComponent<SpriteRenderer>().material.color;
-		c.a +=0.3f;
+		c.a +=0.3f * Time.deltaTime;
 		if(c.a >= 1f)
 		{
 			c = new Color (1f,1f,1f,1f);
