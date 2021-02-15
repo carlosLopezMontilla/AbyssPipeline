@@ -30,6 +30,7 @@ public class Secret : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
   Inside = true;
+		AudioController.instance.PlaySecretZone();
 	}
 	// OnTriggerExit is called when the Collider other has stopped touching the trigger.
 	private void OnTriggerExit(Collider other)
@@ -41,7 +42,6 @@ public class Secret : MonoBehaviour
 	
 		Color c = FrontGround.GetComponent<SpriteRenderer>().material.color;
 		c.a -= 0.3f * Time.deltaTime;
-		AudioController.instance.PlaySecretZone();
 		if(c.a <= 0.1f)
 			{
 			c = new Color (0f,0f,0f,0f);

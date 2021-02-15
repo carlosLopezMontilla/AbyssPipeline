@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3101847330826562122}
   - component: {fileID: 9020922199831574792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TCP2_Demo_Grass 1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2532610249605603339}
   - component: {fileID: 2193040779885624057}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TCP2_Demo_Grass 1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4307170796396671992}
   - component: {fileID: 4307170796396671991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TCP2_Demo_Grass 1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 251749332591602319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7522362226003494315}
   - component: {fileID: 606349888713581167}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TCP2_Demo_Grass 1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
