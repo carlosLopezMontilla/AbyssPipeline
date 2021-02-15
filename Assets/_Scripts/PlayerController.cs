@@ -1,4 +1,4 @@
-﻿                using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     public float Force = 100;
     private bool jumpNow = false;
     public int jumpLimit;
-    public float gravity;
     public bool isGrounded;
     public bool jumpPressed;
     
@@ -32,9 +31,10 @@ public class PlayerController : MonoBehaviour
 	[Header("Analisis")]
 	public Analisis analisis;
 
+    [Header("Habilidades")]
     public UnlockHabs habs;
-   
-    
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         isCrouched = false;
 	    speed = OriginalSpeed;
 	    initialPower = chargePower;
-        distanceToGround = transform.localScale.y + 0.02f;
+        distanceToGround = transform.localScale.y + 0.05f;
             
     }
     void Update()
@@ -92,20 +92,27 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-	    moveInput = Input.GetAxisRaw("Horizontal");
-        
-            if (moveInput != 0)
+	   float moveInput = Input.GetAxis("Horizontal");
+
+    
+
+        if (moveInput != 0)
             {
+            print(moveInput);
                 speed += acceleration;
                 if (speed > maxSpeed)
                 {
                     speed = maxSpeed;
                 }
-            }
-            else
-            {
+         }
+         else
+         {
                 speed = OriginalSpeed;
-            }
+         }
+        
+       
+         
+        
         if (isCrouched == false)
         {
             rb.velocity = new Vector3(moveInput * speed, rb.velocity.y);
@@ -123,9 +130,11 @@ public class PlayerController : MonoBehaviour
         jumpNow = false;
         jumpPressed = true;
         chargePower = initialPower;
+       
     }
-    
-  
+
+
+
 
 
 

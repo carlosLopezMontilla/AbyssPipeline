@@ -43,11 +43,6 @@ public class EnemyChase : MonoBehaviour
 		if (pContr.isCrouched == false && range < EnemyVision && range < vision && EnemyVision > EnemyAngle)
 			transform.position = Vector3.MoveTowards(transform.position, player.position, approachSpeed * Time.deltaTime);
 	}
-
-
-
-
-	// Implement OnDrawGizmos if you want to draw gizmos that are also pickable and always drawn.
 	protected void OnDrawGizmos()
 	{
 		Gizmos.color = Color.yellow;

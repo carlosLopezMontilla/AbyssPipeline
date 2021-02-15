@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UnlockHabs : MonoBehaviour
-{
+
+{ [Header("Unlock Hide")]
 	public bool hideUnlock;
     public EnemyChase enemy;
     public PlayerController pContr;

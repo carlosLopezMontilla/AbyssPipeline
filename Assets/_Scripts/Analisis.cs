@@ -6,13 +6,17 @@ using System;
 
 public class Analisis : MonoBehaviour
 {
-	[Header("Analyze")]
+	[Header("Gameobject References")]
     public GameObject text;
 	public GameObject Analyze;
     public GameObject Exit;
+	[Header("Colliders")]
 	public SphereCollider sColl;
+
+	[Header("Booleanos")]
 	public bool Inside, inAnalyze;
-	//public bool Analyzed;
+
+	[Header("Scripts References")]
 	public UnlockHabs habs;
 
 	public EnemyChase eChase;

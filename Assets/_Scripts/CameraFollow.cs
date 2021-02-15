@@ -8,13 +8,11 @@ public class CameraFollow : MonoBehaviour
     public float smoothing;
     public Vector2 minPosition, maxPosition;
 
-     void LateUpdate()
+     void Update()
     {
        if(transform.position != player.position)
         {
             Vector3 targetPosition = new Vector3(player.position.x, player.position.y, transform.position.z);
-
-            targetPosition.y = Mathf.Clamp(transform.position.y, minPosition.y, maxPosition.y);
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
                 
