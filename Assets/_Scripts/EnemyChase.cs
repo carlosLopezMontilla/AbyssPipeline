@@ -13,6 +13,7 @@ public class EnemyChase : MonoBehaviour
 	public float currentVisionAngle;
 
 	public List<Transform> points;
+
 	public int nextID = 0;
 	int idChangeValue = 1;
 	public float speed;
