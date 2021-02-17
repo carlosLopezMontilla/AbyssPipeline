@@ -18,9 +18,9 @@ public class Analisis : MonoBehaviour
 
 	[Header("Scripts References")]
 	public UnlockHabs habs;
-
 	public EnemyChase eChase;
-    // Start is called before the first frame update
+
+	
     void Start()
     {
 	    Inside = false;
@@ -43,7 +43,7 @@ public class Analisis : MonoBehaviour
 
         if (inAnalyze)
         {
-			if (Input.GetKey(KeyCode.L))
+			if (Input.GetMouseButton(0))
 			{
 				SalirAnalizador();
 			}
@@ -71,9 +71,10 @@ public class Analisis : MonoBehaviour
 		Time.timeScale = 0f;
 		text.SetActive(false);
 		Analyze.SetActive(true);
-		Exit.SetActive(true);
+		Exit.SetActive(true); 
 		inAnalyze = true;
 		habs.hideUnlock = true;
+		
 		//Analyzed = true;
 	}
 
