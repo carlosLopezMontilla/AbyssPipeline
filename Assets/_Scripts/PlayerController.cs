@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 	public float initialPower;
     public float Force = 100;
     private bool jumpNow = false;
-    public int jumpLimit;
+	public float jumpLimit;
     public bool isGrounded;
     public bool jumpPressed;
     public CapsuleCollider cCollider;
