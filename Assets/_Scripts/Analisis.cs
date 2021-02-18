@@ -18,15 +18,14 @@ public class Analisis : MonoBehaviour
 
 	[Header("Scripts References")]
 	public UnlockHabs habs;
-	public EnemyChase eChase;
+
 
 	
     void Start()
     {
 	    Inside = false;
 		sColl = GetComponent<SphereCollider>();
-		eChase = GetComponent<EnemyChase>();
-		sColl.radius = eChase.vision;
+	
 		//Analyzed = false;
 
     }
