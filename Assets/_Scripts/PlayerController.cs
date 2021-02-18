@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 	public float jumpLimit;
     public bool isGrounded;
     public bool jumpPressed;
-    public CapsuleCollider cCollider;
     
     [Header("Crouch")]
 	public bool isCrouched;
@@ -49,7 +48,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        Ray ray = new Ray(cCollider.bounds.center, Vector3.down);
+        Ray ray = new Ray(transform.position, Vector3.down);
        
         isGrounded = Physics.Raycast(ray, distanceToGround, LayerMask.GetMask("Ground"));
        
