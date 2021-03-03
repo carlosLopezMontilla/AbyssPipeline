@@ -5,11 +5,16 @@ using UnityEngine;
 public class CameraZoom : MonoBehaviour
 {
     public Camera cam;
-    public int maxFOV, initialFOV;
+    public int maxFOV, initialFOV, recoverySpeed;
+    public float currentFOV;
 
     private void Start()
     {
         cam.fieldOfView = initialFOV;
+    }
+     void Update()
+    {
+        currentFOV = cam.fieldOfView;
     }
     private void OnTriggerStay(Collider other)
     {

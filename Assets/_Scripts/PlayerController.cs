@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
     [Header("Habilidades")]
     public UnlockHabs habs;
 
-    public Transform foot;
+    public Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
        
         isGrounded = Physics.Raycast(ray, distanceToGround, LayerMask.GetMask("Ground"));
-      
+        
   
        if(Input.GetKey(KeyCode.LeftShift) && habs.hideUnlock == true)
         {
@@ -66,8 +67,8 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && Input.GetKey(KeyCode.Space) && jumpPressed == false)
         {
 	        chargePower +=  Time.deltaTime;
-            
-            if(chargePower >= jumpLimit)
+           
+            if (chargePower >= jumpLimit)
             {
                 holdToJump();
 
@@ -95,8 +96,8 @@ public class PlayerController : MonoBehaviour
     {
 	   float moveInput = Input.GetAxis("Horizontal");
 
-    
 
+        anim.SetFloat("moveInput", moveInput);
         if (moveInput != 0)
             {
                 speed += acceleration;
@@ -109,6 +110,7 @@ public class PlayerController : MonoBehaviour
          {
                 speed = OriginalSpeed;
          }
+        
         
        
          
