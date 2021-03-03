@@ -1,30 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject mainMenu;
-  
-    // Update is called once per frame
+    [Header("Collectibles")]
+    public int coralCollected;
+    public TextMeshProUGUI coral;
+    // Start is called before the first frame update
+    void Start()
+    {
+        coralCollected = 0;
+    }
+
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Time.timeScale = 0;
-            mainMenu.SetActive(true);
-        }
-    }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
-        mainMenu.SetActive(false);
-    }
-
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        coral.text = coralCollected.ToString();
     }
 }

@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     [Header("Habilidades")]
     public UnlockHabs habs;
 
-
+    public Transform foot;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         isCrouched = false;
 	    speed = OriginalSpeed;
 	    initialPower = chargePower;
-        distanceToGround = transform.localScale.y + 0.05f;
+        distanceToGround = transform.localScale.y;
             
     }
     void Update()
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
        
         isGrounded = Physics.Raycast(ray, distanceToGround, LayerMask.GetMask("Ground"));
-       
+      
   
        if(Input.GetKey(KeyCode.LeftShift) && habs.hideUnlock == true)
         {
