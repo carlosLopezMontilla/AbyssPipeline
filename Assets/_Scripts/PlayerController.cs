@@ -66,10 +66,11 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && Input.GetKey(KeyCode.Space) && jumpPressed == false)
         {
+            anim.SetBool("IsGrounded", true);
 	        chargePower +=  Time.deltaTime;
-           
             if (chargePower >= jumpLimit)
             {
+
                 holdToJump();
 
             }
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpPressed = false;
         }
+        
       
 
     }
@@ -106,6 +108,7 @@ public class PlayerController : MonoBehaviour
                     speed = maxSpeed;
                 }
          }
+        
          else
          {
                 speed = OriginalSpeed;
