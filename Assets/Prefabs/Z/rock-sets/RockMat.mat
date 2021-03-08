@@ -191,24 +191,24 @@ Material:
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
-    - _Blend: 0.046
+    - _Blend: 0.072
     - _BlendMode: 0
     - _BumpScale: 1
-    - _CausticSpeed: 5
-    - _CausticTile: 1.05
+    - _CausticSpeed: 1.18
+    - _CausticTile: 9
     - _CoatMask: 0
     - _Cull: 2
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
     - _DepthBlend: 202.6
-    - _DepthFade: 10
+    - _DepthFade: 9.5
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
     - _DetailNormalMapScale: 1
     - _DetailNormalScale: 1
     - _DetailSmoothnessScale: 1
-    - _Diffraction: 0.038
+    - _Diffraction: 0.081
     - _DiffusionProfile: 0
     - _DiffusionProfileHash: 0
     - _DirectIntensityOutline: 1
@@ -228,14 +228,14 @@ Material:
     - _DistortionDstBlend: 1
     - _DistortionEnable: 0
     - _DistortionScale: 1
-    - _DistortionSpeed: 3
+    - _DistortionSpeed: 0.43
     - _DistortionSrcBlend: 1
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 0
-    - _EdgeBlend: 0.1
+    - _EdgeBlend: 9.6
     - _EmissionChannel: 4
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
@@ -250,7 +250,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Height: 10
+    - _Height: 12.9
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -274,7 +274,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _Multiply: 1.129
-    - _NoiseTile: 0.5
+    - _NoiseTile: 2.52
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _NormalsSource: 0
@@ -311,7 +311,7 @@ Material:
     - _RimMin: 0.5
     - _SSRefractionProjectionModel: 0
     - _SingleIndirectColor: 0
-    - _SmoothHeight: 11
+    - _SmoothHeight: 58.57
     - _Smoothness: 0
     - _SmoothnessRemapMax: 0.5
     - _SmoothnessRemapMin: 0
@@ -371,7 +371,7 @@ Material:
     - _UseShadowThreshold: 0
     - _UseSpecular: 0
     - _WetRange: 2
-    - _Wetness: 0.773
+    - _Wetness: 0.178
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestModeDistortion: 4
