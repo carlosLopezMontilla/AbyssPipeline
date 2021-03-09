@@ -5,24 +5,24 @@ using UnityEngine.Playables;
 
 public class Cinematic : MonoBehaviour
 {
-    public PlayableDirector timeline;
+	public PlayableDirector timeline;
+	public Rigidbody player;
+	
     // Start is called before the first frame update
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            timeline.Play();    
+	        timeline.Play();   
+	        StartCoroutine(noMove());
         }
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	IEnumerator noMove()
+	{
+		player.constraints = RigidbodyConstraints.FreezeAll;
+		yield return new WaitForSeconds(7.5f);
+		player.constraints = RigidbodyConstraints.FreezeRotation;
+	}
 }
