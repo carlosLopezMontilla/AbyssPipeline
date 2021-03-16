@@ -662,6 +662,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2003032547}
+--- !u!1 &451826793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451826794}
+  m_Layer: 0
+  m_Name: FeetPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451826794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451826793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.483, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5857247125043923998}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &506808080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +2041,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coralCollected: 0
   coral: {fileID: 857114580}
+  timeline: {fileID: 0}
+  player: {fileID: 0}
+  message: {fileID: 0}
 --- !u!4 &2003032548
 Transform:
   m_ObjectHideFlags: 0
@@ -2155,10 +2188,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5857247125043924002}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.82, y: 1.018, z: 0}
+  m_LocalPosition: {x: -0.82, y: 0.988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5857247124342061338}
+  - {fileID: 451826794}
   - {fileID: 1701356875}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2181,12 +2215,6 @@ MonoBehaviour:
   maxSpeed: 5
   OriginalSpeed: 5
   distanceToGround: 0
-  chargePower: 1.5
-  initialPower: 1.5
-  Force: 3
-  jumpLimit: 2.5
-  isGrounded: 0
-  jumpPressed: 0
   isCrouched: 0
   analisis: {fileID: 0}
   habs: {fileID: 0}
@@ -2203,6 +2231,7 @@ GameObject:
   - component: {fileID: 5857247125043923999}
   - component: {fileID: 5857247125043923996}
   - component: {fileID: 5857247125043923997}
+  - component: {fileID: 5857247125043924003}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2210,6 +2239,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5857247125043924003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857247125043924002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c826d9c5b510f743afccdf675b320a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGrounded: 0
+  feetPos: {fileID: 451826794}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  distanceToGround: 0.05
+  rb: {fileID: 0}
+  jumpForce: 5
+  jumpTime: 0.35
 --- !u!1001 &5990171120401827876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2219,7 +2269,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5c21cebf2ca2a6945bc30216ecc02f1d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c21cebf2ca2a6945bc30216ecc02f1d, type: 3}
       propertyPath: m_LocalScale.x
@@ -2235,11 +2285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c21cebf2ca2a6945bc30216ecc02f1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5100001
+      value: -0.48000017
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c21cebf2ca2a6945bc30216ecc02f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.32000005
+      value: -0.3200001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c21cebf2ca2a6945bc30216ecc02f1d, type: 3}
       propertyPath: m_LocalPosition.z
