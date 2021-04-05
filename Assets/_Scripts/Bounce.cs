@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
+    public Light light;
+    public float currentIntensity, maxIntensity = 5f, initialIntensity = 0f, recoveryTime = 0.1f;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.collider.name == "Player")
         {
-            print("Collision");
+            light.intensity = maxIntensity;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.name == "Player")
+        if (collision.collider.name == "Player")
         {
-            print("No collision");
-        }
+            light.intensity = initialIntensity;
+        } 
     }
+  
+
 }

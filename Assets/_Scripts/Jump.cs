@@ -36,20 +36,17 @@ public class Jump : MonoBehaviour
         {
             if(jumpTimeCounter >0 && isJumping == true)
             {
-
-                rb.drag = 15;
                 rb.velocity = Vector3.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
-            {
-                rb.drag = 20;
+            { 
                 isJumping = false;
             }
         }
         if(Input.GetKeyUp(KeyCode.Space))
         {
-            rb.drag = 20;
+            
             isJumping = false;
         }
     }
