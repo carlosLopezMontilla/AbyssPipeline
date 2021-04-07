@@ -14,13 +14,7 @@ public class Bounce : MonoBehaviour
             light.intensity = maxIntensity;
         }
     }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.name == "Player")
-        {
-            light.intensity = initialIntensity;
-        } 
-    }
+   
   
 
 }
