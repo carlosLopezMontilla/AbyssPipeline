@@ -16,17 +16,6 @@ public class PlayerController : MonoBehaviour
 	public float OriginalSpeed;
     public float distanceToGround;
 
-    /*[Header("Hold to jump")]
-	public float chargePower = 0;
-	public float initialPower;
-    public float Force = 100;
-    private bool jumpNow = false;
-	public float jumpLimit;
-    public bool isGrounded;
-    public bool jumpPressed;
-    public Transform feetPos;
-    public float checkRadius;*/
-    
     [Header("Crouch")]
 	public bool isCrouched;
     
@@ -36,7 +25,12 @@ public class PlayerController : MonoBehaviour
     [Header("Habilidades")]
     public UnlockHabs habs;
 
+    [Header("Animaciones")]
     public Animator anim;
+
+    [Header("Climb")]
+    public bool isClimbing;
+    public float climbSpeed;
 
     void Start()
     {
@@ -71,6 +65,7 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("moveInput", moveInput);
         if (moveInput != 0)
         {
+
             speed += acceleration;
             if (speed > maxSpeed)
             {
@@ -84,11 +79,13 @@ public class PlayerController : MonoBehaviour
         }
         if (moveInput > 0)
         {
+            anim.SetFloat("moveInput", moveInput);
             transform.eulerAngles = new Vector3(0, 0, 90);
         }
         else if (moveInput < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 90);
+            anim.SetFloat("moveInput", moveInput);
         }
 
 
@@ -99,5 +96,28 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(moveInput * speed, rb.velocity.y);
         }
 
+        if(isClimbing)
+        {
+            Climbing();
+        }
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        isClimbing = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        isClimbing = false;
+    }
+
+    void Climbing()
+    {
+        float v = Input.GetAxis("Vertical");
+       
+        if (v > 0)
+        {
+            rb.velocity = Vector3.up * climbSpeed;
+        }
     }
 }

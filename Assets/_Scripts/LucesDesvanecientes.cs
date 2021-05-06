@@ -16,19 +16,17 @@ public class LucesDesvanecientes : MonoBehaviour
 
 		void Update()
 		{
-			if(Dentro)
-			{
-				IntensityDown();
-			}
+			
 			if (!Dentro)
 			{
-				RestoreIntensity();
+			IntensityDown();
 			}
 		}
 		// OnTriggerEnter is called when the Collider other enters the trigger.
 		private void OnTriggerEnter(Collider other)
 		{
 			Dentro = true;
+		myLight.intensity = 5;
 		}
 		// OnTriggerExit is called when the Collider other has stopped touching the trigger.
 		private void OnTriggerExit(Collider other)
@@ -45,7 +43,6 @@ public class LucesDesvanecientes : MonoBehaviour
 		}
 		void RestoreIntensity()
 		{
-			
 			myLight.intensity = OriginalIntensity;
 		}
 	}
