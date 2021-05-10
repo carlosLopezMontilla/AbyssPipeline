@@ -7,6 +7,7 @@ public class CameraZoom : MonoBehaviour
     public Camera cam;
     public int maxFOV, initialFOV, recoverySpeed;
     public float currentFOV;
+    public bool fuera;
 
     private void Start()
     {
@@ -15,6 +16,10 @@ public class CameraZoom : MonoBehaviour
      void Update()
     {
         currentFOV = cam.fieldOfView;
+        if(fuera)
+        {
+            CamaraZoomDown();
+        }
     }
     private void OnTriggerStay(Collider other)
     {
@@ -25,7 +30,7 @@ public class CameraZoom : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        CamaraZoomDown();
+        fuera = true;
     }
     private void CamaraZoomUp()
     {
@@ -37,6 +42,11 @@ public class CameraZoom : MonoBehaviour
     }
     void CamaraZoomDown()
     {
-        cam.fieldOfView = initialFOV;
+        cam.fieldOfView -= 1 * Time.deltaTime;
+        if(cam.fieldOfView <= initialFOV)
+        {
+            cam.fieldOfView = initialFOV;
+            fuera = false;
+        }
     }
 }
