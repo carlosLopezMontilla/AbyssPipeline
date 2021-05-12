@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CameraZoom : MonoBehaviour
 {
@@ -8,10 +9,13 @@ public class CameraZoom : MonoBehaviour
     public int maxFOV, initialFOV, recoverySpeed;
     public float currentFOV;
     public bool fuera;
+    public TextMeshProUGUI zoneText;
+    public GameObject zone;
 
     private void Start()
     {
         cam.fieldOfView = initialFOV;
+        zoneText.text = "buena referencia";
     }
      void Update()
     {
@@ -25,6 +29,7 @@ public class CameraZoom : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            zone.SetActive(true);
             CamaraZoomUp();
         }
     }
@@ -34,7 +39,7 @@ public class CameraZoom : MonoBehaviour
     }
     private void CamaraZoomUp()
     {
-        cam.fieldOfView += 1 * Time.deltaTime;
+        cam.fieldOfView += recoverySpeed * Time.deltaTime;
        if(cam.fieldOfView >= maxFOV)
         {
             cam.fieldOfView = maxFOV;
@@ -42,11 +47,12 @@ public class CameraZoom : MonoBehaviour
     }
     void CamaraZoomDown()
     {
-        cam.fieldOfView -= 1 * Time.deltaTime;
+        cam.fieldOfView -= recoverySpeed * Time.deltaTime;
         if(cam.fieldOfView <= initialFOV)
         {
             cam.fieldOfView = initialFOV;
             fuera = false;
+            Destroy(this.gameObject);
         }
     }
 }
