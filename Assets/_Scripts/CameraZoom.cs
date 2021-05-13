@@ -23,13 +23,18 @@ public class CameraZoom : MonoBehaviour
         if(fuera)
         {
             CamaraZoomDown();
+           
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+            zone.SetActive(true);   
     }
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            zone.SetActive(true);
             CamaraZoomUp();
         }
     }
@@ -55,4 +60,6 @@ public class CameraZoom : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
+    
 }

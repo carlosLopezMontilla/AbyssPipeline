@@ -12,7 +12,7 @@ public class EnemyChase : MonoBehaviour
 	public float VisionAngle;
 	public float currentVisionAngle;
 
-	public List<Transform> points;
+	public Transform[] points;
 
 	public int nextID = 0;
 	int idChangeValue = 1;
@@ -71,9 +71,9 @@ public class EnemyChase : MonoBehaviour
 		}
 
 		transform.position = Vector3.MoveTowards(transform.position,goalPoins.position,speed * Time.deltaTime);
-		if(Vector3.Distance(transform.position,goalPoins.position)<1f)
+	   if(Vector3.Distance(transform.position,goalPoins.position)<1f)
 		{
-			if (nextID == points.Count - 1)
+			if (nextID == 0)
 				idChangeValue = -1;
 
 			if (nextID == 0)
