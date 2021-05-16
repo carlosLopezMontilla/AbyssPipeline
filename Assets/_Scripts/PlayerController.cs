@@ -32,20 +32,24 @@ public class PlayerController : MonoBehaviour
     public bool isClimbing;
     public float climbSpeed;
 
+    [Header("Rebound")]
+    public Bounce bounce;
+    public float bounceSpeed;
+
+    [Header("Linterna")]
+    public GameObject linterna;
+    public bool isLighting;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
         isCrouched = false;
 	    speed = OriginalSpeed;
-	    
         distanceToGround = 0.05f;
             
     }
     void Update()
     {
-       
-  
        if(Input.GetKey(KeyCode.LeftShift) && habs.hideUnlock == true)
         {
             isCrouched = true;
@@ -53,10 +57,8 @@ public class PlayerController : MonoBehaviour
         {
             isCrouched = false;
         }
-
+        Lantern();
     }
-
-
     void FixedUpdate()
     {
         float moveInput = Input.GetAxis("Horizontal");
@@ -87,10 +89,6 @@ public class PlayerController : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 90);
             anim.SetFloat("moveInput", moveInput);
         }
-
-
-
-
         if (isCrouched == false)
         {
             rb.velocity = new Vector3(moveInput * speed, rb.velocity.y);
@@ -119,5 +117,20 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector3.up * climbSpeed;
         }
+    }
+
+    public void Rebound()
+    {
+        rb.AddForce(bounce.direction, ForceMode.Impulse);
+    }
+
+    void Lantern()
+    {
+        if(Input.GetKey(KeyCode.F))
+        {
+            linterna.SetActive(true);
+            isLighting = true;
+        }
+        
     }
 }

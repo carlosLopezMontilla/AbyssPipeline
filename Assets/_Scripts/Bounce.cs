@@ -4,25 +4,42 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-    public Light light;
-    public float currentIntensity, maxIntensity = 5f, initialIntensity = 0f, recoveryTime = 0.1f;
+    public Transform player;
+    public bool isBouncing;
+    public PlayerController pCont;
+    public Vector3 direction = new Vector3();
+    public float bounceDirection;
+    public Vector3 playerContact = new Vector3();
+    
+
+    private void Start()
+    {
+        isBouncing = false;
+    }
 
     private void Update()
     {
-        if (light.intensity == maxIntensity)
+        if (isBouncing)
         {
-            currentIntensity = Mathf.MoveTowards(maxIntensity, initialIntensity, Time.deltaTime);
-            light.intensity = currentIntensity;
+            pCont.Rebound();
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.name == "Player")
         {
-            light.intensity = maxIntensity;
+            isBouncing = true;
+            ContactPoint contact = collision.contacts[0];
+            direction = contact.point;
+
         }
     }
-
-
-
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.name == "Player")
+        {
+            isBouncing = false;
+        }
+    }
 }
+
