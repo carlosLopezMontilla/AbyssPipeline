@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
        
         if (v > 0)
         {
-            rb.velocity = Vector3.up * climbSpeed;
+	        //rb.velocity = Vector3.up * climbSpeed;
         }
     }
 
