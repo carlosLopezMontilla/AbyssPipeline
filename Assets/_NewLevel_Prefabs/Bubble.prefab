@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2215843188040220059}
   - component: {fileID: 2215843188040220058}
   - component: {fileID: 2215843188040220061}
+  - component: {fileID: -2543068722865492486}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -4920,3 +4921,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-2543068722865492486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2215843188040220060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2daa6794edd4326409c8e6db5594e91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomActive: 0
+  Target: []
+  Cam: {fileID: 0}
+  Speed: 0
