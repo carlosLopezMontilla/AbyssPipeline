@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
             isCrouched = false;
         }
         Lantern();
+        Climbing();
     }
     void FixedUpdate()
     {
@@ -102,6 +103,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.CompareTag("Climb"))
         isClimbing = true;
     }
     private void OnTriggerExit(Collider other)
@@ -112,10 +114,10 @@ public class PlayerController : MonoBehaviour
     void Climbing()
     {
         float v = Input.GetAxis("Vertical");
-       
+      
         if (v > 0)
         {
-	        //rb.velocity = Vector3.up * climbSpeed;
+	        rb.velocity = Vector3.up * climbSpeed;
         }
     }
 
