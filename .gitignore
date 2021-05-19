@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/Scenes/DemoScene.unity
+Assets/_Scripts/Platform.cs.meta
+Assets/_Scripts/Platform.cs
+Assets/_Scripts/Linterna.cs.meta
+Assets/_Scripts/Linterna.cs
