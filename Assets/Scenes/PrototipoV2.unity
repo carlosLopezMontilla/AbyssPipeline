@@ -2500,6 +2500,22 @@ MonoBehaviour:
   frustumSettings:
     baseSettings: {fileID: 2134925777}
     qualitySettings: {fileID: 1899956946}
+--- !u!114 &260879615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260879608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d988db8847d38d446876a8fa363a223c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 413876275}
+  x: 0
+  y: 4
+  z: -37
 --- !u!1001 &265460757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11376,7 +11392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1838279509135910457, guid: 6222068de6f4e3b49b578686cfe1385d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.9
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 1838279509135910457, guid: 6222068de6f4e3b49b578686cfe1385d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11420,7 +11436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1838279509135910462, guid: 6222068de6f4e3b49b578686cfe1385d, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1838279509135910462, guid: 6222068de6f4e3b49b578686cfe1385d, type: 3}
       propertyPath: player
@@ -13093,15 +13109,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339059178}
-  - component: {fileID: 1339059177}
   - component: {fileID: 1339059179}
+  - component: {fileID: 1339059177}
   m_Layer: 0
   m_Name: CameraZoom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1339059177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13115,10 +13131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomActive: 0
-  Target:
-  - {x: 0, y: 0, z: -46.1}
-  - {x: 0, y: 0, z: -85}
-  Cam: {fileID: 260879608}
+  distance: 200
+  Cam: {fileID: 1174104974}
   Speed: 0.5
 --- !u!4 &1339059178
 Transform:
