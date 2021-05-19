@@ -2512,10 +2512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d988db8847d38d446876a8fa363a223c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoom: {fileID: 1339059177}
   player: {fileID: 413876275}
-  x: 0
-  y: 4
-  z: -37
 --- !u!1001 &265460757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11450,7 +11448,8 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 1400.77
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1838279509135910462, guid: 6222068de6f4e3b49b578686cfe1385d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6222068de6f4e3b49b578686cfe1385d, type: 3}
 --- !u!4 &1174104974 stripped
 Transform:
@@ -13117,7 +13116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1339059177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13127,12 +13126,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1339059176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2daa6794edd4326409c8e6db5594e91f, type: 3}
+  m_Script: {fileID: 11500000, guid: c9eb0f77d31dfd44595aa819a8ea3ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  z: -37
+  y: 4
+  x: 0
   zoomActive: 0
-  distance: 200
-  Cam: {fileID: 1174104974}
+  zoomAmountZ: -70
+  zoomAmountX: 0
+  zoomAmountY: 2
   Speed: 0.5
 --- !u!4 &1339059178
 Transform:
