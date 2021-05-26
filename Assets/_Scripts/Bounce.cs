@@ -4,42 +4,45 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-    public Transform player;
+    public GameObject effect;
     public bool isBouncing;
-    public PlayerController pCont;
-    public Vector3 direction = new Vector3();
-    public float bounceDirection;
-    public Vector3 playerContact = new Vector3();
-    
-
-    private void Start()
+    public float countdown, countdownTime;
+    void Start()
     {
+        effect.SetActive(false);
         isBouncing = false;
+        countdownTime = countdown;
     }
 
     private void Update()
     {
-        if (isBouncing)
+        if(isBouncing)
         {
-            pCont.Rebound();
+            ParticlesActives();
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.name == "Player")
-        {
-            isBouncing = true;
-            ContactPoint contact = collision.contacts[0];
-            direction = contact.point;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        isBouncing = true;
+    }
+
+    void ParticlesActives()
+    {
+        effect.SetActive(true);
+        countdownTime -= Time.deltaTime;   
+        if(countdownTime <= 0f)
+        {
+            countdownTime = countdown;
+            StartCoroutine(stopParticles());
         }
     }
-    private void OnCollisionExit(Collision collision)
+
+    IEnumerator stopParticles()
     {
-        if (collision.collider.name == "Player")
-        {
-            isBouncing = false;
-        }
+        yield return new WaitForSeconds(countdown);
+        isBouncing = false;
+        effect.SetActive(false);
     }
 }
 

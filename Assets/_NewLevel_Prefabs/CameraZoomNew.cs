@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraZoomNew : MonoBehaviour
-{
-
+{ 
 	public float z = -37;
 	public float y = 4;
 	public float x = 0;
@@ -13,7 +12,7 @@ public class CameraZoomNew : MonoBehaviour
 	public float zoomAmountX;
 	public float zoomAmountY;
 	public float Speed;
-	
+	public GameObject trigger;
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.CompareTag("Player"))
@@ -24,6 +23,7 @@ public class CameraZoomNew : MonoBehaviour
 	{
 		if(other.gameObject.CompareTag("Player"))
 			zoomActive = false;
+		
 	}
 	
 	public void Update()

@@ -121,10 +121,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Rebound()
-    {
-        rb.AddForce(bounce.direction, ForceMode.Impulse);
-    }
+   
 
     void Lantern()
     {
