@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-    public GameObject effect;
+    public GameObject particleSystem;
     public bool isBouncing;
     public float countdown, countdownTime;
+    public GameObject spawner;
+    
     void Start()
     {
-        effect.SetActive(false);
+        
         isBouncing = false;
         countdownTime = countdown;
     }
 
     private void Update()
     {
+       
         if(isBouncing)
         {
             ParticlesActives();
@@ -26,23 +29,26 @@ public class Bounce : MonoBehaviour
     {
         isBouncing = true;
     }
+   
 
     void ParticlesActives()
-    {
-        effect.SetActive(true);
+    {         
         countdownTime -= Time.deltaTime;   
         if(countdownTime <= 0f)
         {
+            GameObject effectParticles = Instantiate(particleSystem, new Vector3(spawner.transform.position.x, spawner.transform.position.y, spawner.transform.position.z), Quaternion.identity);
+            print(effectParticles.name);
             countdownTime = countdown;
-            StartCoroutine(stopParticles());
+            isBouncing = false;
+            //StartCoroutine(stopParticles());
         }
     }
 
-    IEnumerator stopParticles()
+   /* IEnumerator stopParticles()
     {
         yield return new WaitForSeconds(countdown);
         isBouncing = false;
-        effect.SetActive(false);
-    }
+        
+    }*/
 }
 
