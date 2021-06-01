@@ -749,7 +749,7 @@ MonoBehaviour:
       - 54.440952
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -3559,3 +3559,5 @@ MonoBehaviour:
   rb: {fileID: 0}
   jumpForce: 5
   jumpTime: 0.35
+  test: 0
+  _anim: {fileID: 1790036079}

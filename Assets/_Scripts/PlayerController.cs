@@ -121,8 +121,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-   
-
     void Lantern()
     {
         if(Input.GetKey(KeyCode.F))

@@ -14,28 +14,35 @@ public class Jump : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
+
+    public int test;
+    public Animator _anim;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Ray ray = new Ray(feetPos.transform.position, Vector3.down);
 
         isGrounded = Physics.Raycast(ray, distanceToGround, LayerMask.GetMask("Ground"));
         if(isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
+            
             isJumping =true;
             jumpTimeCounter = jumpTime;
-            rb.velocity = Vector3.up * jumpForce;
-        }
+            rb.velocity = Vector3.up * jumpForce;        }
         if (Input.GetKey(KeyCode.Space))
         {
             if(jumpTimeCounter >0 && isJumping == true)
             {
+                _anim.SetTrigger("jumpUp");
                 rb.velocity = Vector3.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
             }
@@ -46,8 +53,9 @@ public class Jump : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.Space))
         {
-            
+            _anim.SetTrigger("jumpFall");
             isJumping = false;
         }
     }
+ 
 }
