@@ -7,9 +7,9 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    private Rigidbody rb;
+    public Rigidbody rb;
     public float speed;
-    private float moveInput;
+    public float moveInput;
 	public float YjumpForce;
 	public float acceleration;
 	public float maxSpeed;
@@ -50,15 +50,14 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-       if(Input.GetKey(KeyCode.LeftShift) && habs.hideUnlock == true)
+       /*if(Input.GetKey(KeyCode.LeftShift) && habs.hide == true)
         {
             isCrouched = true;
         }else
         {
             isCrouched = false;
-        }
-        Lantern();
-        Climbing();
+        }*/
+        
     }
     void FixedUpdate()
     {
@@ -95,10 +94,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(moveInput * speed, rb.velocity.y);
         }
 
-        if(isClimbing)
-        {
-            Climbing();
-        }
+       
 
     }
     private void OnTriggerEnter(Collider other)
@@ -111,23 +107,5 @@ public class PlayerController : MonoBehaviour
         isClimbing = false;
     }
 
-    void Climbing()
-    {
-        float v = Input.GetAxis("Vertical");
-      
-        if (v > 0)
-        {
-	        rb.velocity = Vector3.up * climbSpeed;
-        }
-    }
-
-    void Lantern()
-    {
-        if(Input.GetKey(KeyCode.F))
-        {
-            linterna.SetActive(true);
-            isLighting = true;
-        }
-        
-    }
+    
 }

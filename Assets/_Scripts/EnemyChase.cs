@@ -37,11 +37,11 @@ public class EnemyChase : MonoBehaviour
     {
 		MoveToNextPoint();
 		Vector3 displacement = player.position - transform.position;
-
+		
 		float range = displacement.magnitude;
 		float EnemyVision = VisionAngle / 2;
 		float EnemyAngle = Vector3.Angle(lookDirection, displacement);
-		if (pContr.isCrouched == false && range < EnemyVision && range < vision && EnemyVision > EnemyAngle)
+		if (habs.hide == false && range < EnemyVision && range < vision && EnemyVision > EnemyAngle)
 			transform.position = Vector3.MoveTowards(transform.position, player.position, approachSpeed * Time.deltaTime);
 	}
 	protected void OnDrawGizmos()

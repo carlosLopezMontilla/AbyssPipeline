@@ -22,19 +22,16 @@ public class Jump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         Ray ray = new Ray(feetPos.transform.position, Vector3.down);
 
         isGrounded = Physics.Raycast(ray, distanceToGround, LayerMask.GetMask("Ground"));
         if(isGrounded == true && Input.GetKeyDown(KeyCode.Space))
-        {
-            
+        {     
             isJumping =true;
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector3.up * jumpForce;        }
@@ -57,5 +54,6 @@ public class Jump : MonoBehaviour
             isJumping = false;
         }
     }
- 
+   
+
 }

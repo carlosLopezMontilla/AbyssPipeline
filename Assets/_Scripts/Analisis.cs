@@ -72,7 +72,7 @@ public class Analisis : MonoBehaviour
 		Analyze.SetActive(true);
 		Exit.SetActive(true); 
 		inAnalyze = true;
-		habs.hideUnlock = true;
+		habs.hide = true;
 		
 		//Analyzed = true;
 	}
