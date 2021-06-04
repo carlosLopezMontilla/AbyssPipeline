@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9058203906700194411
+--- !u!114 &-8098860511907752834
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,25 +9,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
   enabled:
     overrideState: 1
     value: 1
-  focusDistance:
+  intensity:
     overrideState: 1
-    value: 10.07
-  aperture:
-    overrideState: 1
-    value: 5.6
-  focalLength:
-    overrideState: 1
-    value: 50
-  kernelSize:
+    value: 6.46
+  threshold:
     overrideState: 1
     value: 1
+  softKnee:
+    overrideState: 1
+    value: 0.5
+  clamp:
+    overrideState: 1
+    value: 65472
+  diffusion:
+    overrideState: 1
+    value: 5.56
+  anamorphicRatio:
+    overrideState: 1
+    value: -0.84
+  color:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 0
+    value: 0
+  dirtTexture:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 0
+    value: 0
 --- !u!114 &-6467921938314724360
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1354,9 +1373,8 @@ MonoBehaviour:
   settings:
   - {fileID: 879923286499375950}
   - {fileID: 6884984751137347375}
-  - {fileID: 3294875490346043772}
   - {fileID: -6467921938314724360}
-  - {fileID: -9058203906700194411}
+  - {fileID: -8098860511907752834}
 --- !u!114 &879923286499375950
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1406,43 +1424,6 @@ MonoBehaviour:
   quality:
     overrideState: 0
     value: 2
---- !u!114 &3294875490346043772
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
-  m_Name: AutoExposure
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  filtering:
-    overrideState: 1
-    value: {x: 74.50571, y: 99}
-  minLuminance:
-    overrideState: 1
-    value: 0.2
-  maxLuminance:
-    overrideState: 1
-    value: 4.6
-  keyValue:
-    overrideState: 0
-    value: 1
-  eyeAdaptation:
-    overrideState: 0
-    value: 0
-  speedUp:
-    overrideState: 0
-    value: 0
-  speedDown:
-    overrideState: 0
-    value: 1
 --- !u!114 &6884984751137347375
 MonoBehaviour:
   m_ObjectHideFlags: 3
