@@ -10,17 +10,17 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public float speed;
     public float moveInput;
-	public float YjumpForce;
-	public float acceleration;
-	public float maxSpeed;
-	public float OriginalSpeed;
+    public float YjumpForce;
+    public float acceleration;
+    public float maxSpeed;
+    public float OriginalSpeed;
     public float distanceToGround;
 
     [Header("Crouch")]
-	public bool isCrouched;
-    
-	[Header("Analisis")]
-	public Analisis analisis;
+    public bool isCrouched;
+
+    [Header("Analisis")]
+    public Analisis analisis;
 
     [Header("Habilidades")]
     public UnlockHabs habs;
@@ -44,20 +44,20 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isCrouched = false;
-	    speed = OriginalSpeed;
+        speed = OriginalSpeed;
         distanceToGround = 0.05f;
-            
+
     }
     void Update()
     {
-       /*if(Input.GetKey(KeyCode.LeftShift) && habs.hide == true)
-        {
-            isCrouched = true;
-        }else
-        {
-            isCrouched = false;
-        }*/
-        
+        /*if(Input.GetKey(KeyCode.LeftShift) && habs.hide == true)
+         {
+             isCrouched = true;
+         }else
+         {
+             isCrouched = false;
+         }*/
+
     }
     void FixedUpdate()
     {
@@ -94,18 +94,22 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(moveInput * speed, rb.velocity.y);
         }
 
-       
+
 
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Climb"))
-        isClimbing = true;
+        if (other.gameObject.CompareTag("Climb"))
+            isClimbing = true;
+
     }
     private void OnTriggerExit(Collider other)
     {
         isClimbing = false;
+        
+        anim.SetTrigger("Idle");
+
     }
 
-    
+
 }

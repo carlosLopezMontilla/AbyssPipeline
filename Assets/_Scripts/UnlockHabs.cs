@@ -14,6 +14,7 @@ public class UnlockHabs : MonoBehaviour
     [Header("Climb")]
     public float climbSpeed;
     public bool isClimbing;
+    public float v;
 
     [Header("Lanntern")]
     public GameObject linterna;
@@ -55,18 +56,21 @@ public class UnlockHabs : MonoBehaviour
 
     void Climbing()
     {
-        currentHab = 1;
-
-        if(isClimbing)
+        float v = Input.GetAxis("Vertical");
+        if (pContr.isClimbing)
         {
-            float v = Input.GetAxis("Vertical");
-
-            if (v > 0)
+            pContr.anim.SetFloat("Climb", v);
+            if (v > 0.2)
             {
                 pContr.rb.velocity = Vector3.up * climbSpeed;
+                
             }
+            
         }
-        
+        else
+        {
+            pContr.anim.SetTrigger("Idle");
+        }
     }
 
     void Lantern()
@@ -81,11 +85,6 @@ public class UnlockHabs : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-         
-    }
-
 }
 /* Vector3 displacement = player.position - transform.position;
 
