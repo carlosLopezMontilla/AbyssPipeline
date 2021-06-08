@@ -1157,11 +1157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff85245c0ed9f240b60148d8cf297c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 2545238163378014335, guid: a55d9c9ef668b9f4d80b4941f0769e0c, type: 3}
+  particles: []
   isBouncing: 0
   countdown: 0.5
   countdownTime: 0
   spawner: {fileID: 0}
+  id: 0
 --- !u!1001 &120092902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2529,8 +2530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d988db8847d38d446876a8fa363a223c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoom: {fileID: 1339059177}
   player: {fileID: 413876275}
+  highPosition: {x: 0, y: 1, z: -15}
 --- !u!1001 &265460757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2845,11 +2846,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff85245c0ed9f240b60148d8cf297c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
+  particles: []
   isBouncing: 0
   countdown: 0
   countdownTime: 0
   spawner: {fileID: 0}
+  id: 0
 --- !u!4 &301834023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 989861539113776452, guid: 5d3735d1087131140981f1b8806b580f, type: 3}
@@ -13163,15 +13165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9eb0f77d31dfd44595aa819a8ea3ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  z: -37
-  y: 4
-  x: 0
-  zoomActive: 0
-  zoomAmountZ: -70
-  zoomAmountX: 0
-  zoomAmountY: 2
-  Speed: 0.5
-  trigger: {fileID: 1339059176}
 --- !u!4 &1339059178
 Transform:
   m_ObjectHideFlags: 0
@@ -15843,11 +15836,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff85245c0ed9f240b60148d8cf297c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 2545238163378014335, guid: a55d9c9ef668b9f4d80b4941f0769e0c, type: 3}
+  particles:
+  - {fileID: 8499000126118390019, guid: 02edaa31a49e6e340ac3e7438f147159, type: 3}
+  - {fileID: 7818700540972464045, guid: 71cde6abffe222b4eacbebf9de29ad96, type: 3}
+  - {fileID: 8650678202259689277, guid: ae81587ea3489054cbec1a9819160c5e, type: 3}
   isBouncing: 0
   countdown: 0.1
   countdownTime: 0
   spawner: {fileID: 1789919347}
+  id: 0
 --- !u!65 &1594007397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18484,10 +18481,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbaa592c34ab7ca4f8c1f53fef0781a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideUnlock: 0
-  enemy: {fileID: 0}
+  currentHab: 0
+  hide: 0
   pContr: {fileID: 0}
   player: {fileID: 0}
+  climbSpeed: 0
+  isClimbing: 0
+  v: 0
+  linterna: {fileID: 0}
+  isLighting: 0
 --- !u!4 &1846971319
 Transform:
   m_ObjectHideFlags: 0

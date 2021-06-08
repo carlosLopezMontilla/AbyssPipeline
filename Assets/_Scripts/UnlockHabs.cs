@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnlockHabs : MonoBehaviour
 {
     public int currentHab;
+    public int activeHab;
+    public GameObject hideSelect, climbSelect;
     [Header("Hide")]
 	public bool hide;
     public PlayerController pContr;
@@ -23,19 +26,54 @@ public class UnlockHabs : MonoBehaviour
 
     void Start()
 	{
+        currentHab = 1;
+        hideSelect.SetActive(true);
+        climbSelect.SetActive(false);
+        activeHab = currentHab;
 		hide = false;
         isClimbing = false;
 	}
 
     private void Update()
     {
-        Lantern();
-        Climbing();
-        Hide();
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            activeHab -= 1;
+            hideSelect.SetActive(true);
+            climbSelect.SetActive(false);
+            if (activeHab < 1)
+            {
+                activeHab = 1;
+            }
+
+        }
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+            activeHab += 1;
+            hideSelect.SetActive(false);
+            climbSelect.SetActive(true);
+            if(activeHab > 2 )
+            {
+                activeHab = 2;
+            }
+
+        }
+        
+       
+        
+        if(activeHab == 1)
+        {
+           Hide();
+
+        }
+        if (activeHab == 2)
+        {
+            Climbing();
+        }
+
     }
    void Hide()
     {
-        currentHab = 0;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -56,6 +94,7 @@ public class UnlockHabs : MonoBehaviour
 
     void Climbing()
     {
+        currentHab = 1;
         float v = Input.GetAxis("Vertical");
         if (pContr.isClimbing)
         {
@@ -74,9 +113,7 @@ public class UnlockHabs : MonoBehaviour
     }
 
     void Lantern()
-    {
-        currentHab = 2;
-
+    { 
         if (Input.GetKey(KeyCode.L))
         {
             linterna.SetActive(true);
