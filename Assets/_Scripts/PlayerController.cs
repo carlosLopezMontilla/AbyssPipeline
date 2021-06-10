@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     public GameObject linterna;
     public bool isLighting;
 
+    public ContactPoint[] contacts;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -50,13 +52,6 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        /*if(Input.GetKey(KeyCode.LeftShift) && habs.hide == true)
-         {
-             isCrouched = true;
-         }else
-         {
-             isCrouched = false;
-         }*/
 
     }
     void FixedUpdate()
@@ -110,6 +105,7 @@ public class PlayerController : MonoBehaviour
         anim.SetTrigger("Idle");
 
     }
-
+    
+    
 
 }

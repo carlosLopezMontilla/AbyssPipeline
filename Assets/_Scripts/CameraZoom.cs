@@ -15,7 +15,7 @@ public class CameraZoom : MonoBehaviour
     private void Start()
     {
         cam.fieldOfView = initialFOV;
-        zoneText.text = "buena referencia";
+       
     }
      void Update()
     {

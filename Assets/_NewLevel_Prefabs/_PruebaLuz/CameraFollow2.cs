@@ -10,7 +10,9 @@ public class CameraFollow2 : MonoBehaviour
     public float speed;
     public Transform cam;
     public Vector3 camMove;
+    public float zPos0, zPos1;
 
+   
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -28,20 +30,21 @@ public class CameraFollow2 : MonoBehaviour
     }
     void Update()
     {
+        
         float step = speed * Time.deltaTime;
-
         if (zoomActive)
         {
             //cam.transform.position = player.transform.position + Vector3.Lerp(Target[1], Target[0], speed * Time.deltaTime);
             camMove = Vector3.MoveTowards(Target[1], Target[0], step);
+
         }
         else
         {
             //cam.transform.position = player.transform.position + Vector3.Lerp(Target[0], Target[1], speed * Time.deltaTime);
             camMove = Vector3.MoveTowards(Target[0], Target[1], step);
-
         }
-
-        cam.transform.position = player.transform.position + camMove;
+        
+        
+        cam.transform.position = player.transform.position + camMove; 
     }
 }
