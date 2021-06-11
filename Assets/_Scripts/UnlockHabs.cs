@@ -8,6 +8,8 @@ public class UnlockHabs : MonoBehaviour
     public int currentHab;
     public int activeHab;
     public GameObject hideSelect, climbSelect;
+    public UnlockClimb unlockClimb;
+    public UnlockHide unlockHide;
     [Header("Hide")]
 	public bool hide;
     public PlayerController pContr;
@@ -26,10 +28,10 @@ public class UnlockHabs : MonoBehaviour
 
     void Start()
 	{
-        currentHab = 1;
-        hideSelect.SetActive(true);
-        climbSelect.SetActive(false);
-        activeHab = currentHab;
+        //currentHab = 1;
+        //hideSelect.SetActive(true);
+        //climbSelect.SetActive(false);
+        //activeHab = currentHab;
 		hide = false;
         isClimbing = false;
 	}
@@ -39,30 +41,32 @@ public class UnlockHabs : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q))
         {
             activeHab = 1;
-            hideSelect.SetActive(true);
-            climbSelect.SetActive(false);
-            
-
         }
-            if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            activeHab = 2;        
+        }
+        if (unlockHide.unlockHide)
+        {
+            if (activeHab == 1)
             {
-            activeHab = 2;
-            hideSelect.SetActive(false);
-            climbSelect.SetActive(true);
-            
-        }
-        
-       
-        
-        if(activeHab == 1)
-        {
-           Hide();
+                Hide();
+                hideSelect.SetActive(true);
+                climbSelect.SetActive(false);
 
+            }
         }
-        if (activeHab == 2)
+        
+        if(unlockClimb.unlockClimb)
         {
-            Climbing();
+            if (activeHab == 2)
+            {
+                Climbing();
+                hideSelect.SetActive(false);
+                climbSelect.SetActive(true);
+            }
         }
+      
 
     }
    void Hide()

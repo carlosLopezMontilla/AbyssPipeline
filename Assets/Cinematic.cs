@@ -24,13 +24,13 @@ public class Cinematic : MonoBehaviour
 
 	IEnumerator noMove()
 	{
-		player.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
-		noJump.enabled = false;
-		HUD.SetActive(false);
-		yield return new WaitForSeconds(timer);
-		player.constraints = RigidbodyConstraints.FreezeRotation;
-		noJump.enabled = true;
-		HUD.SetActive(true);
-		Destroy(this);
-	}
+        player.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        noJump.enabled = false;
+        HUD.SetActive(false);
+        yield return new WaitForSeconds(timer);
+        player.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+        noJump.enabled = true;
+        HUD.SetActive(true);
+        Destroy(this);
+    }
 }
