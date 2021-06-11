@@ -38,25 +38,18 @@ public class UnlockHabs : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            activeHab -= 1;
+            activeHab = 1;
             hideSelect.SetActive(true);
             climbSelect.SetActive(false);
-            if (activeHab < 1)
-            {
-                activeHab = 1;
-            }
+            
 
         }
             if(Input.GetKeyDown(KeyCode.E))
             {
-            activeHab += 1;
+            activeHab = 2;
             hideSelect.SetActive(false);
             climbSelect.SetActive(true);
-            if(activeHab > 2 )
-            {
-                activeHab = 2;
-            }
-
+            
         }
         
        
