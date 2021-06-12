@@ -9,6 +9,7 @@ public class Cinematic : MonoBehaviour
 	public Rigidbody player;
 	public float timer;
 	public Jump noJump;
+	public GameObject show;
 	public GameObject HUD;
 	
     // Start is called before the first frame update
@@ -25,12 +26,13 @@ public class Cinematic : MonoBehaviour
 	IEnumerator noMove()
 	{
         player.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-        noJump.enabled = false;
-        HUD.SetActive(false);
+		noJump.enabled = false;
+		HUD.SetActive(false);
         yield return new WaitForSeconds(timer);
         player.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
         noJump.enabled = true;
-        HUD.SetActive(true);
+		HUD.SetActive(true);
+		show.SetActive(true);
         Destroy(this);
     }
 }
