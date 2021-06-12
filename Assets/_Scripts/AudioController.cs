@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-	public static AudioController instance;
-	
 	public AudioSource secret;
+
 	
-	// Awake is called when the script instance is being loaded.
-	protected void Awake()
+	void OnTriggerEnter(Collider other)
 	{
-		instance = this;
+		if (other.tag == "Player")
+		{
+			secret.Play();
+			Destroy(this);
+		}
 	}
 	
-	public void PlaySecretZone()
-	{
-		secret.Stop();
-		secret.Play();
-	}
 }

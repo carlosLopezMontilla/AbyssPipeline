@@ -30,7 +30,7 @@ public class Secret : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
   Inside = true;
-		AudioController.instance.PlaySecretZone();
+		//AudioController.instance.PlaySecretZone();
 	}
 	// OnTriggerExit is called when the Collider other has stopped touching the trigger.
 	private void OnTriggerExit(Collider other)

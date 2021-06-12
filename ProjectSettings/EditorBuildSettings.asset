@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 1296d8f3f955c84409703881dc1bba0c
   - enabled: 1
-    path: Assets/_NewLevel_Prefabs/_PruebaLuz/LuzPrueba.unity
+    path: Assets/Scenes/FinalProtype.unity
     guid: ce39c4a5ccad3654f8db40065f88b532
   m_configObjects: {}
